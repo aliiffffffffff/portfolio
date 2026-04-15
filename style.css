@@ -147,7 +147,7 @@ a {
   font-family: var(--font-display);
   font-size: 1.6rem;
   color: var(--gray-400);
-  display: none;
+  display: none !important;
 }
 
 .hero-photo img + .hero-initials {
