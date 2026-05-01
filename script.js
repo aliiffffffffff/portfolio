@@ -84,3 +84,25 @@ window.addEventListener('scroll', () => {
     navbar.style.borderBottomColor = '#e8e8e5';
   }
 }, { passive: true });
+
+// =====================
+// ORIENTATION BADGE
+// =====================
+const horizontalIcon = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+  <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="white" stroke-width="1.3"/>
+</svg>`;
+
+const verticalIcon = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+  <rect x="4" y="1" width="6" height="12" rx="1.5" stroke="white" stroke-width="1.3"/>
+</svg>`;
+
+document.querySelectorAll('.work-card[data-orientation]').forEach(card => {
+  const orientation = card.dataset.orientation;
+  const thumb = card.querySelector('.work-thumb');
+  if (!thumb) return;
+
+  const badge = document.createElement('div');
+  badge.className = 'orientation-badge';
+  badge.innerHTML = orientation === 'vertical' ? verticalIcon : horizontalIcon;
+  thumb.appendChild(badge);
+});
